@@ -53,23 +53,6 @@
             color: white;
             position: absolute;
         }
-
-        #message {
-            font-size: 35px;
-            color: white;
-            display: none;
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        canvas {
-            position: fixed;
-            pointer-events: none;
-        }
     </style>
 </head>
 <body>
@@ -79,21 +62,9 @@
 <button id="yesBtn">YES 😍</button>
 <button id="noBtn">NO 😜</button>
 
-<div id="message">🎉 Congratulations! Welcome to Friendship! 💕</div>
-
-<audio id="bgMusic" loop>
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
-</audio>
-
-<canvas id="confetti"></canvas>
-
 <script>
     const noBtn = document.getElementById("noBtn");
-    const yesBtn = document.getElementById("yesBtn");
-    const message = document.getElementById("message");
-    const music = document.getElementById("bgMusic");
 
-    // Move NO button randomly
     function moveButton() {
         const x = Math.random() * (window.innerWidth - 100);
         const y = Math.random() * (window.innerHeight - 50);
@@ -104,54 +75,15 @@
     noBtn.addEventListener("mouseover", moveButton);
     moveButton();
 
-    // YES button click
-    yesBtn.addEventListener("click", () => {
-        message.style.display = "block";
-        music.play();
-        startConfetti();
+    // When YES is clicked → redirect after small animation delay
+    document.getElementById("yesBtn").addEventListener("click", function() {
+        document.body.style.background = "black";
+        document.body.innerHTML = "<h1 style='color:white'>Loading your surprise... 🌿</h1>";
+
+        setTimeout(function() {
+            window.location.href = "nature.html";
+        }, 2000);
     });
-
-    // Confetti animation
-    const canvas = document.getElementById("confetti");
-    const ctx = canvas.getContext("2d");
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    let confetti = [];
-
-    function startConfetti() {
-        for (let i = 0; i < 200; i++) {
-            confetti.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                r: Math.random() * 6 + 4,
-                d: Math.random() * 200,
-                color: "hsl(" + Math.random() * 360 + ",100%,50%)",
-                tilt: Math.random() * 10 - 10
-            });
-        }
-        animateConfetti();
-    }
-
-    function animateConfetti() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        confetti.forEach((c, i) => {
-            ctx.beginPath();
-            ctx.fillStyle = c.color;
-            ctx.fillRect(c.x, c.y, c.r, c.r);
-        });
-        updateConfetti();
-        requestAnimationFrame(animateConfetti);
-    }
-
-    function updateConfetti() {
-        confetti.forEach(c => {
-            c.y += 2;
-            if (c.y > canvas.height) {
-                c.y = 0;
-            }
-        });
-    }
 </script>
 
 </body>
