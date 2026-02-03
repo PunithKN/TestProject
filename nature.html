@@ -187,10 +187,14 @@
 
     // After 10 seconds show love message + fireworks
     setTimeout(()=>{
-        document.getElementById("loveText").style.display="block";
-        document.getElementById("proposalText").style.display="block";
-        createFireworks();
-    },5000);
+    // Hide main names text
+    document.querySelector(".text").style.display = "none";
+    // Show love + proposal
+    document.getElementById("loveText").style.display = "block";
+    document.getElementById("proposalText").style.display = "block";
+    createFireworks();
+},5000);
+
 
     function createFireworks(){
         for(let i=0;i<50;i++){
