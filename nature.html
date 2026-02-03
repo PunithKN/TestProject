@@ -145,14 +145,14 @@
 <body onclick="location.reload()">
 
 <div class="image-container">
-    <img src="testproject/photo.jpeg" alt="Shizu and Punith">
+    <img src="photo.jpeg" alt="Shizu and Punith">
 </div>
 
 <div class="gradient"></div>
 
 <div class="text">
     <h1>Shizu ❤️ Punith</h1>
-    <p>Our beautiful love story begins 💕</p>
+    <p>Our beautiful story begins 💕</p>
 </div>
 
 <div class="love-message" id="loveText">
@@ -160,7 +160,7 @@
 </div>
 
 <div class="proposal" id="proposalText">
-    💍 Will you stay with me forever? 💖
+    💍 Will you stay with me forever? 💖 (Reply in WhatsApp)
 </div>
 
 <div class="screenshot-btn" onclick="takeScreenshot(event)">
@@ -190,7 +190,7 @@
         document.getElementById("loveText").style.display="block";
         document.getElementById("proposalText").style.display="block";
         createFireworks();
-    },10000);
+    },5000);
 
     function createFireworks(){
         for(let i=0;i<50;i++){
