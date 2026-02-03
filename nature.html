@@ -1,53 +1,73 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Welcome 🌿</title>
-
+    <title>Welcome 🎉</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
-        body {
+        * {
             margin: 0;
-            height: 100vh;
-            background: url('photo.jpeg') no-repeat center center;
-            background-size: cover;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: black;
+            height: 100svh;
             display: flex;
             justify-content: center;
             align-items: center;
-            text-align: center;
             font-family: Arial, sans-serif;
-            color: white;
-            padding: 20px;
+            overflow: hidden;
         }
 
-        .content {
-            background: rgba(0,0,0,0.5);
-            padding: 5vw;
+        .image-container {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-container img {
+            height: 100%;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .overlay {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 6vw;
             border-radius: 20px;
+            text-align: center;
+            backdrop-filter: blur(6px);
             max-width: 90%;
-            animation: fadeIn 2s ease-in-out;
         }
 
         h1 {
-            font-size: clamp(24px, 6vw, 50px);
-            margin-bottom: 15px;
+            color: white;
+            font-size: clamp(24px, 6vw, 48px);
+            margin-bottom: 10px;
         }
 
         p {
+            color: white;
             font-size: clamp(16px, 4vw, 22px);
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
-<div class="content">
-    <h1>🎉 Congratulations! 🎉</h1>
-    <p>Welcome to this beautiful journey 💚</p>
+<div class="image-container">
+    <img src="photo.jpeg" alt="Special Moment">
+
+    <div class="overlay">
+        <h1>🎉 Congratulations! 🎉</h1>
+        <p>Welcome to this beautiful journey 💚</p>
+    </div>
 </div>
 
 </body>
