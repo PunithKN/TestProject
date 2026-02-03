@@ -2,6 +2,10 @@
 <html>
 <head>
     <title>Will You Be My Friend?</title>
+
+    <!-- IMPORTANT FOR MOBILE -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <style>
         body {
             margin: 0;
@@ -17,25 +21,26 @@
         }
 
         h1 {
-            font-size: 40px;
+            font-size: clamp(22px, 5vw, 40px);
             color: white;
             text-shadow: 2px 2px 10px red;
             animation: pulse 1.5s infinite;
+            padding: 10px;
         }
 
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+            50% { transform: scale(1.05); }
             100% { transform: scale(1); }
         }
 
         button {
-            padding: 15px 30px;
-            font-size: 20px;
+            padding: 12px 25px;
+            font-size: clamp(16px, 4vw, 20px);
             border: none;
             border-radius: 30px;
             cursor: pointer;
-            margin: 20px;
+            margin: 15px;
             transition: 0.3s;
         }
 
@@ -45,7 +50,7 @@
         }
 
         #yesBtn:hover {
-            transform: scale(1.2);
+            transform: scale(1.1);
         }
 
         #noBtn {
@@ -57,7 +62,7 @@
 </head>
 <body>
 
-<h1>Shizu Will you be my Valentine? 💖</h1>
+<h1>Will you be my friend? 💖</h1>
 
 <button id="yesBtn">YES 😍</button>
 <button id="noBtn">NO 😜</button>
@@ -73,13 +78,11 @@
     }
 
     noBtn.addEventListener("mouseover", moveButton);
+    noBtn.addEventListener("touchstart", moveButton); // for mobile
     moveButton();
 
-    // When YES is clicked → redirect after small animation delay
     document.getElementById("yesBtn").addEventListener("click", function() {
-        document.body.style.background = "black";
-        document.body.innerHTML = "<h1 style='color:white'>Loading your surprise... 🌿</h1>";
-
+        document.body.innerHTML = "<h1 style='color:white;background:black;height:100vh;display:flex;justify-content:center;align-items:center;'>Loading your surprise... 🌿</h1>";
         setTimeout(function() {
             window.location.href = "nature.html";
         }, 2000);

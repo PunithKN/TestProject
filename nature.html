@@ -2,45 +2,52 @@
 <html>
 <head>
     <title>Welcome 🌿</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <style>
         body {
             margin: 0;
             height: 100vh;
-            background: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470') no-repeat center center/cover;
+            background: url('testproject/photo.jpeg') no-repeat center center;
+            background-size: cover;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
             font-family: Arial, sans-serif;
             color: white;
+            padding: 20px;
         }
 
         .content {
             background: rgba(0,0,0,0.5);
-            padding: 40px;
+            padding: 5vw;
             border-radius: 20px;
-            animation: fadeIn 3s ease-in-out;
+            max-width: 90%;
+            animation: fadeIn 2s ease-in-out;
         }
 
         h1 {
-            font-size: 50px;
+            font-size: clamp(24px, 6vw, 50px);
+            margin-bottom: 15px;
         }
 
         p {
-            font-size: 22px;
+            font-size: clamp(16px, 4vw, 22px);
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
 <div class="content">
-    <h1>🌿 Thank you and Welcome to my world. 🌿</h1>
-    <p>You will be taken care with at most priority 💚</p>
+    <h1>🎉 Congratulations! 🎉</h1>
+    <p>Welcome to this beautiful journey 💚</p>
 </div>
 
 </body>
